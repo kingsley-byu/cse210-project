@@ -1,14 +1,14 @@
 using System;
 public class Product
 {
-    private string _name;
+    private string _productName;
     private string _productId;
     private decimal _PricePerUnit;
     private int _quantity;
 
-    public Product(string name, string productId, decimal pricePerUnit, int quantity)
+    public Product(string productName, string productId, decimal pricePerUnit, int quantity)
     {
-        _name = name;
+        _productName = productName;
         _productId = productId;
         _PricePerUnit = pricePerUnit;
         _quantity = quantity;
@@ -16,21 +16,18 @@ public class Product
 
     public string GetName()
     {
-        
+        return _productName;
     }
 
-    public string GetProduct()
-    {
-        
-    }
+   
 
     public string GetProductId()
     {
-        
+        return _productId;
     }
 
     public decimal GetTotalCost()
     {
-        
+        return _PricePerUnit *_quantity;
     }
 }
