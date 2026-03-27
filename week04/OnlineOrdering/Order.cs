@@ -1,5 +1,8 @@
 using System;
 using System.Collections.Generic;
+using System.Data.Common;
+using System.IO.Pipelines;
+using System.Reflection.Emit;
 
 public class Order
 {
@@ -32,20 +35,24 @@ public class Order
             {
                 total += 35;
             }
-            return total;
-
-
         }
+        return total;
     }
 
     public string GetPackingLabel()
     {
-        
+        string id = "";
+        foreach (Product product in _products)
+        {
+            
+            id = product.GetName() + " " + product.GetProductId();
+        } 
+        return id;
     }
 
     public string GetShippingLabel()
     {
-        
+        return _customer.GetShippingLabel();
     }
 }
 
