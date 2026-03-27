@@ -7,12 +7,11 @@ class Program
     {
         List<Video> videos = new List<Video>();
         
-        Video video1 = new Video("Best of  lionel messi", "Prince bolton", 689);
+        Video video1 = new Video("Best of lionel messi", "Prince bolton", 689);
         Comment comment1 = new Comment("osawaru kingsley", "wow what a performance by lionel messi");
         Comment comment2 = new Comment("prince wells", "magical messi");
         Comment comment3 = new Comment("Adam steve", "Ohh My world!!, magical messsi");
         Comment comment4 = new Comment("clark newton", "beautiful by lionel messi");
-        
         video1.AddComment(comment1);
         video1.AddComment(comment2);
         video1.AddComment(comment3);
@@ -23,9 +22,7 @@ class Program
         Comment comment5 = new Comment("kate","animal survival");
         Comment comment6 = new Comment("Esther", "flawless win");
         Comment comment7 = new Comment("Andrew Wilson", "animal chaos");
-        Comment comment8 = new Comment("Kenneth", "Nice fight");
-
-            
+        Comment comment8 = new Comment("Kenneth", "Nice fight");   
         video2.AddComment(comment5);
         video2.AddComment(comment6);
         video2.AddComment(comment7);
@@ -37,9 +34,7 @@ class Program
         Comment comment9 = new Comment("Edward prince", "house of the lord");
         Comment comment10 = new Comment("Edith praise", "beautiful is the house of the lord");
         Comment comment11= new Comment("kingsley osas", "I love the temple");
-        Comment comment12= new Comment("Akon smith", "Look forward to visit the temple");
-
-            
+        Comment comment12= new Comment("Akon smith", "Look forward to visit the temple");    
         video3.AddComment(comment9);
         video3.AddComment(comment10);
         video3.AddComment(comment11);
@@ -52,9 +47,6 @@ class Program
         Comment comment14= new Comment("Philip", "I sustain the prophet");
         Comment comment15= new Comment("John Lamn", "Thank God for a prophet voice");
         Comment comment16= new Comment("Aston villa", "God is love");
-    
-
-
         video4.AddComment(comment13);
         video4.AddComment(comment14);
         video4.AddComment(comment15);

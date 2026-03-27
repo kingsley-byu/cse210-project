@@ -30,11 +30,13 @@ public class Video
     {
         Console.WriteLine("Title | Author | Video length");
         Console.WriteLine($"{_title} | {_author} | {_length} seconds");
-        Console.WriteLine($"Number of comments: {{GetNumberOfComments}}")
+        Console.WriteLine($"Number of comments: {GetNumberOfComments()}");
         Console.WriteLine("Comments: ");
         foreach (Comment comment in _comment)
         {
             comment.Display();
         }
+        Console.WriteLine("-------------------------------------------");
+
     }
 }
