@@ -39,14 +39,16 @@ public class Activity
 
     public void ShowSpinner(int seconds)
     {
-        for (int i = 4; i>0; i--)
+        string [] spinners = {"|", "/", "-", "\\"};
+        int index = 0;
+        DateTime startTime = DateTime.Now;
+        while ((DateTime.Now - startTime).TotalSeconds < seconds)
         {
-            Console.Write(i);
-            Thread.Sleep(1000);
-            Console.Write("\b \b");
-        
-        }
-        
+            Console.Write(spinners[index % spinners.Length]);
+            Thread.Sleep(200);
+            Console.Write("\b \b"); 
+            index++;
+        }  
     }
 
     public void ShowCountDown(int seconds)
