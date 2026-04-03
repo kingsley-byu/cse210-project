@@ -1,6 +1,10 @@
 using System;
-public class ActivityMenu
+using System.Runtime.Serialization;
+public class ActivityMenu 
 {
+
+    /* This class create a private method which display the menu of the activity to the user , it allow user to make a choice 
+    on which activity to select. and is called in the main program to  display the menu to the user*/
     private void DisplayMenu()
     {
         Console.WriteLine("Welcome to the Mindfulness program!");
@@ -15,8 +19,10 @@ public class ActivityMenu
         bool running = true;
         while (running)
         {
+            /* This create  a loop consisting of different cases and create an object for the 3 (three) activity 
+            break when the activity finishes and display the menu again for the user to select*/
             DisplayMenu();
-            Console.Write("Select a choice");
+            Console.Write("Select a choice: ");
             string choice = Console.ReadLine();
             switch (choice)
             {
@@ -41,6 +47,7 @@ public class ActivityMenu
                 Console.WriteLine("Invalid choice, please try again.");
                 break;
             }
+            
         }
     }
 }
