@@ -1,13 +1,13 @@
 using System;
 public class ListingActivity : Activity
 {
-    private int _Count;
+    private int _count;
     private List<string> _prompts;
 
     public ListingActivity() : base("Listing Activity", "This activity will help you reflect on the good things in your life by having you list as many things as you can in a certain area.")
     
     {
-        _Count = 0;
+        _count = 0;
         _prompts = new List<string>
         {
             "Who are people that you appreciate?",
@@ -20,7 +20,12 @@ public class ListingActivity : Activity
 
     public void Run()
     {
-       
+       DisplayEndingMessage();
+       Console.WriteLine(GetRandomPrompt());
+       ShowCountDown(15);
+       List<string> items = new List<string>();
+       Console.WriteLine($"You listed {_count} items");
+       DisplayEndingMessage();
     }
 
     public string GetRandomPrompt()
@@ -36,13 +41,12 @@ public class ListingActivity : Activity
         DateTime startTime = DateTime.Now;
         while ((DateTime.Now -startTime).TotalSeconds <Duration)
         {
-            Console.Write("write");
+            Console.Write("List item: ");
             string input = Console.ReadLine();
             userInput.Add(input);
 
-            _Count++;
-            return userInput;
-            
+            _count++;    
         }
+        return userInput;
     }
 }
