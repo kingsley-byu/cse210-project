@@ -1,9 +1,15 @@
 using System;
+using System.Threading;
 public class Activity
 {
     private string _name;
     private string _description;
     private int _duration;
+
+    protected int Duration 
+    {
+        get {return _duration;}
+    }
 
     public Activity(string name, string description)
     {
@@ -16,22 +22,29 @@ public class Activity
         Console.WriteLine($"Welcome to the {_name} Activity.");
         Console.WriteLine(_description);
 
-        Console.Write("What duration would you like to take the activity?");
-        int duration = int.Parse(Console.ReadLine());
+        Console.Write("How many seconds would you like the activity to last? ");
+        _duration = int.Parse(Console.ReadLine());
+
+        Console.WriteLine("Get ready to begin...");
+        ShowSpinner(3);
         
     }
 
     public void DisplayEndingMessage()
     {
         Console.WriteLine("Great job,  Well Done!!");
+        ShowSpinner(3);
+        Console.WriteLine($"You have completed {_duration} seconds of the {_name}.");
     }
 
     public void ShowSpinner(int seconds)
     {
         for (int i = 4; i>0; i--)
         {
-            Console.Write("..");
+            Console.Write(i);
             Thread.Sleep(1000);
+            Console.Write("\b \b");
+        
         }
         
     }
@@ -39,13 +52,16 @@ public class Activity
     public void ShowCountDown(int seconds)
     {
         DateTime startTime = DateTime.Now;
-        DateTime endTime = startTime.AddSeconds(15);
-        Thread.Sleep(1000);
+        DateTime endTime = startTime.AddSeconds(5);
+        Thread.Sleep(3000);
 
-        while (DateTime.Now < endTime)
+        DateTime currentTime = DateTime.Now;
+        if (currentTime <endTime)
         {
-           Console.WriteLine("Done✅"); 
+            Console.WriteLine("Done✅✅");
         }
+
+        
 
     }
 }
