@@ -20,10 +20,10 @@ public class ListingActivity : Activity
 
     public void Run()
     {
-       DisplayEndingMessage();
+       DisplayStartingMessage();
        Console.WriteLine(GetRandomPrompt());
-       ShowCountDown(15);
-       List<string> items = new List<string>();
+       ShowCountDown(5);
+       GetListFromUser();
        Console.WriteLine($"You listed {_count} items");
        DisplayEndingMessage();
     }
