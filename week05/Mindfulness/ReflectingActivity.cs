@@ -2,7 +2,7 @@ using System;
  public class ReflectingActivity : Activity
  {
     private List<string> _prompts;
-    private List<string> _question;
+    private List<string> _questions;
 
     public ReflectingActivity() : base("Reflection Activity", "This activity will help you reflect on times in your life when you have shown strength and resilience. This will help you recognize the power you have and how you can use it in other aspects of your life.")
     {
@@ -13,7 +13,7 @@ using System;
          "Think of a time when you helped someone in need.",
          "Think of a time when you did something truly selfless"
        };
-       _question = new  List<string>()
+       _questions = new  List<string>()
        {
          "Why was this experience meaningful to you?",
          "Have you ever done anything like this before?",
@@ -32,7 +32,7 @@ using System;
         DisplayStartingMessage();
         DisplayPrompt();
         ShowCountDown(6);
-        DisplayQuestion();
+        DisplayQuestions();
         DisplayEndingMessage();
 
 
@@ -48,20 +48,22 @@ using System;
     public string GetRandomQuestion()
     {
         Random random = new Random();
-       int index = random.Next(0, _question.Count);
-       return _question[index]; 
+       int index = random.Next(0, _questions.Count);
+       return _questions[index]; 
     }
 
     public void DisplayPrompt()
     {
+        Console.WriteLine("Consider the following prompt:");
         Console.WriteLine(GetRandomPrompt());
     }
 
-    public void DisplayQuestion()
+    public void DisplayQuestions()
     {
         DateTime startTime = DateTime.Now;
         while ((DateTime.Now -startTime).TotalSeconds <Duration)
       {
+         Console.WriteLine("Reflect on the following question:");
         Console.Write(GetRandomQuestion());
         ShowSpinner(4);   
       }
