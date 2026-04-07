@@ -61,10 +61,10 @@ using System;
 
     public void DisplayQuestions()
     {
+        Console.WriteLine("Reflect on the following question:");
         DateTime startTime = DateTime.Now;
         while ((DateTime.Now -startTime).TotalSeconds <Duration)
       {
-        Console.WriteLine("Reflect on the following question:");
         Console.WriteLine(GetRandomQuestion());
         ShowSpinner(4);   
       }
