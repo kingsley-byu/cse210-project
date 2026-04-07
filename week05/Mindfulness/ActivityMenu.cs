@@ -1,5 +1,4 @@
 using System;
-using System.Runtime.Serialization;
 public class ActivityMenu 
 {
 
@@ -12,7 +11,8 @@ public class ActivityMenu
         Console.WriteLine("1. Breathing Activity");
         Console.WriteLine("2. Reflecting Activity");
         Console.WriteLine("3. Listing Activity");
-        Console.WriteLine("4. Quit");
+        Console.WriteLine("4. Visualization Activity");
+        Console.WriteLine("5. Quit");
     }
     public void Run()
     {
@@ -41,6 +41,10 @@ public class ActivityMenu
                 listing.Run();
                 break;
                 case "4":
+                VisualizationActivity visual = new VisualizationActivity();
+                visual.Run();
+                break;
+                case "5":
                 running = false;
                 break;
                 default:

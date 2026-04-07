@@ -56,7 +56,7 @@ using System;
     public void DisplayPrompt()
     {
         Console.WriteLine("Consider the following prompt:");
-        Console.WriteLine(GetRandomPrompt());
+        Console.WriteLine($"prompt:" + GetRandomPrompt() + "\n");
     }
 
     public void DisplayQuestions()
@@ -64,8 +64,8 @@ using System;
         DateTime startTime = DateTime.Now;
         while ((DateTime.Now -startTime).TotalSeconds <Duration)
       {
-         Console.WriteLine("Reflect on the following question:");
-        Console.Write(GetRandomQuestion());
+        Console.WriteLine("Reflect on the following question:");
+        Console.WriteLine(GetRandomQuestion());
         ShowSpinner(4);   
       }
     }
