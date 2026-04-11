@@ -17,21 +17,25 @@ public abstract class Goal
 
     public abstract bool IsComplete();
     
-    public virtual string GetDetailsString();
+    public virtual string GetDetailsString()
+    {
+        string completed = IsComplete() ? "[X]" : "[]";
+        return $"{completed} {GetName()} {GetDescription}";
+    }
     
 
     public abstract string GetStringRepresentation();
 
-    protected string GetName()
+    public string GetName()
     {
         return _shortName; 
     }
 
-    protected string GetDescription()
+    public string GetDescription()
     {
          return _description;
     }
-    protected int GetPoints()
+    public int GetPoints()
     {
           return _points;
     }
