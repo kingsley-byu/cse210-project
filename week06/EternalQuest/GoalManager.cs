@@ -116,15 +116,19 @@ public class GoalManager
             }
         }
     }
+    
     public void LoadGoals()
+{
+    Console.Write("Enter file name: ");
+    string fileName = Console.ReadLine();
+
+    if (File.Exists(fileName))
     {
-        Console.Write("Enter file name:");
-        string fileName = Console.ReadLine();
-        string [] lines = File.ReadAllLines(fileName);
+        string[] lines = File.ReadAllLines(fileName);
         _score = int.Parse(lines[0]);
-        for (int i=1; i< lines.Length; i++)
+        for (int i = 1; i < lines.Length; i++)
         {
-            string [] parts = lines[i].Split(",");
+            string[] parts = lines[i].Split(",");
             switch (parts[0])
             {
                 case "SimpleGoal":
@@ -133,7 +137,7 @@ public class GoalManager
                 break;
 
                 case "CheckListGoal":
-                CheckListGoal checkList = new CheckListGoal(parts[1], parts[2], int.Parse(parts[3]), int.Parse(parts[4]),int.Parse(parts[5]), int.Parse(parts[6]));
+                CheckListGoal checkList = new CheckListGoal(parts[1], parts[2], int.Parse(parts[3]), int.Parse(parts[4]), int.Parse(parts[5]), int.Parse(parts[6]));
                 _goals.Add(checkList);
                 break;
 
@@ -141,13 +145,15 @@ public class GoalManager
                 EternalGoal eternalGoal = new EternalGoal(parts[1], parts[2], int.Parse(parts[3]));
                 _goals.Add(eternalGoal);
                 break;
-                default:
-                Console.WriteLine("Invalid choice, please try again.");
-                break;
             }
         }
-        
+        Console.WriteLine("Goals loaded successfully!");
     }
+    else
+    {
+        Console.WriteLine($"File '{fileName}' was not found. Please check the filename and try again.");
+    }
+}
     private void DisplayMenu()
     {
         Console.WriteLine("Welcome to Eternal Quest!");
