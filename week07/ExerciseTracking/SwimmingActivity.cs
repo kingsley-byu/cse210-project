@@ -1,3 +1,4 @@
+using System;
 public class SwimmingActivity : Activity
 {
     private int _laps;

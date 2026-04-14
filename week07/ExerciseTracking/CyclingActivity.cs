@@ -1,3 +1,4 @@
+using System;
 public class CyclingActivity : Activity
 {
     private double _speed;
